@@ -1,19 +1,18 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { Route, Routes } from "react-router";
+
 import FormDemo from "./components/qlsv/FormDemo";
 import Header from "./components/common/Header";
-import DataTable from "./components/qlsv/DataTable";
+import DataTable from "./components/qlsv/DataTable/DataTable";
 import HomePrice from "./components/common/HomePrice";
-import { useEffect, useState } from "react";
 
 export default function () {
-  const [students, setStudents] = useState([]);
+  // const [students, setStudents] = useState([]);
 
-  useEffect(() => {
-    console.log("APP --> EFF DEBUG --> ", students);
-  }, [students]);
-
-  const handleSetStudents = (_formData) => {
-    setStudents([...students, _formData]);
+  const handleAddStudent = (_formData) => {
+    // setStudents([...students, _formData]);
+    axios.post("https://5f9b85e1856f4c00168c26e6.mockapi.io/students", { ..._formData, createdAt: new Date() });
   };
 
   return (
@@ -23,13 +22,13 @@ export default function () {
         <div className="container py-5 my-5">
           <div className="row text-center pb-4">
             <div className="col-md-12">
-              <h2 className="text-white siyah-cerceve">Web Gì Đó</h2>
+              <h2 className="text-secondary">Web Gì Đó</h2>
             </div>
           </div>
           <Routes>
             <Route path="/" element={<HomePrice />}></Route>
-            <Route path="/table" element={<DataTable students={students} />}></Route>
-            <Route path="/form" element={<FormDemo handleSetStudents={handleSetStudents} />} />
+            <Route path="/table" element={<DataTable />}></Route>
+            <Route path="/form" element={<FormDemo handleAddStudent={handleAddStudent} />} />
           </Routes>
         </div>
       </section>
