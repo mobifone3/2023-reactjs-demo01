@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+  /* background-color: #17a2b8; */
+  height: 100vh;
+}
+
+#login .container #login-row #login-column #login-box {
+  border-radius: 5px;
+  /* margin-top: 120px; */
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9c9c9c;
+  background-color: #eaeaea;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+/* -------------------------------------------------------------- */
+.firma-ara {
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+.form-arka-plan {
+  background-image: url("https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9&s=fb86e2e09fceac9b363af536b93a1275");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.acik-renk-form {
+  background: rgba(255, 255, 255, 0.58);
+}
+.siyah-cerceve {
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+/* -------------------------------------------------------------- */
+/* .card-deck {
+  flex-flow: row wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+} */
