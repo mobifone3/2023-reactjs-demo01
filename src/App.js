@@ -1,19 +1,17 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { Route, Routes } from "react-router";
+
 import FormDemo from "./components/qlsv/FormDemo";
 import Header from "./components/common/Header";
 import DataTable from "./components/qlsv/DataTable";
 import HomePrice from "./components/common/HomePrice";
-import { useEffect, useState } from "react";
 
 export default function () {
-  const [students, setStudents] = useState([]);
-
-  useEffect(() => {
-    console.log("APP --> EFF DEBUG --> ", students);
-  }, [students]);
-
   const handleSetStudents = (_formData) => {
-    setStudents([...students, _formData]);
+    axios.post("https://5f9b85e1856f4c00168c26e6.mockapi.io/students", _formData).then((response) => {
+      console.log("DEBUG AFTER POST --> ", response);
+    });
   };
 
   return (
@@ -28,7 +26,7 @@ export default function () {
           </div>
           <Routes>
             <Route path="/" element={<HomePrice />}></Route>
-            <Route path="/table" element={<DataTable students={students} />}></Route>
+            <Route path="/table" element={<DataTable />}></Route>
             <Route path="/form" element={<FormDemo handleSetStudents={handleSetStudents} />} />
           </Routes>
         </div>
